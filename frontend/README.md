@@ -1,4 +1,4 @@
-# FileSphere — Frontend
+# DriveSync — Frontend
 
 A React frontend for a cloud storage app: login, signup, a file dashboard,
 and account settings. No backend is wired in yet — every list starts empty

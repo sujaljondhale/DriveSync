@@ -60,7 +60,7 @@ export default function MockGoogleLogin() {
             <span style={{ color: '#EA4335' }}>e</span>
           </div>
           <h1 style={{ fontSize: '1.4rem', marginTop: '16px', fontWeight: '500' }}>Sign in</h1>
-          <p style={{ color: '#5F6368', fontSize: '0.9rem', marginTop: '6px' }}>to continue to FileSphere</p>
+          <p style={{ color: '#5F6368', fontSize: '0.9rem', marginTop: '6px' }}>to continue to DriveSync</p>
         </div>
 
         {error && (

@@ -157,7 +157,7 @@ export default function Login() {
         <div className="brand-mark">
           <Icon name="cloud" size={26} />
         </div>
-        <h1 className="brand-name">FileSphere</h1>
+        <h1 className="brand-name">DriveSync</h1>
         <p className="brand-tagline">Grounded, secure storage for your digital world.</p>
       </div>
 
@@ -217,7 +217,7 @@ export default function Login() {
           </button>
 
           <div className="auth-switch">
-            New to FileSphere? <Link to="/signup">Create account</Link>
+            New to DriveSync? <Link to="/signup">Create account</Link>
           </div>
 
           <div className="divider-row">or continue with</div>

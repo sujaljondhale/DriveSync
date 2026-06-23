@@ -1,5 +1,5 @@
 /* ============================================
-   FileSphere — Design tokens
+   DriveSync — Design tokens
    ============================================ */
 :root {
   /* colors */
@@ -435,7 +435,7 @@ input, button {
 .pitch-photo {
   border-radius: var(--radius-md);
   min-height: 200px;
-  background: linear-gradient(160deg, #44513f, #1f2a1c);
+  background: url('https://images.unsplash.com/photo-1544198365-f5d60b6d8190?q=80&w=800&auto=format&fit=crop') center/cover no-repeat;
 }
 
 .pitch-stat {

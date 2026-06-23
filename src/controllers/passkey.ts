@@ -5,7 +5,7 @@ import prisma from '../config/db';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret';
 const RP_ID = process.env.RP_ID || 'localhost';
-const RP_NAME = process.env.RP_NAME || 'FileSphere';
+const RP_NAME = process.env.RP_NAME || 'DriveSync';
 const ORIGIN = process.env.FRONTEND_ORIGIN || 'http://localhost:5173';
 
 // ── Helpers ────────────────────────────────────────────────────────────────

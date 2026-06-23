@@ -44,7 +44,7 @@ export default function Signup() {
   return (
     <div className="signup-page">
       <header className="signup-topbar">
-        <span className="brand-name-sm">FileSphere</span>
+        <span className="brand-name-sm">DriveSync</span>
         <nav className="signup-nav">
           <span className="status-pill"><span className="dot" /> System online</span>
           <Link to="/pricing">Pricing</Link>
@@ -59,7 +59,7 @@ export default function Signup() {
             Secure your digital <span className="accent">roots</span> in the cloud.
           </h1>
           <p className="pitch-copy">
-            FileSphere bridges powerful cloud storage infrastructure with a calm,
+            DriveSync bridges powerful cloud storage infrastructure with a calm,
             organic interface — built for people who want their files kept safely
             and simply.
           </p>
@@ -83,7 +83,7 @@ export default function Signup() {
 
         <div className="auth-card signup-card">
           <h2>Create account</h2>
-          <p className="card-subtitle">Begin your journey with FileSphere today.</p>
+          <p className="card-subtitle">Begin your journey with DriveSync today.</p>
 
           <form onSubmit={handleSubmit} noValidate>
             {formError && (

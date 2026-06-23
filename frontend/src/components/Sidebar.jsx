@@ -36,7 +36,7 @@ export default function Sidebar({ onUploadClick, onFolderUploadClick }) {
             <Icon name="folder" size={18} />
           </div>
           <div>
-            <div className="brand-name-sm">FileSphere</div>
+            <div className="brand-name-sm">DriveSync</div>
             <div className="brand-sub">Cloud storage</div>
           </div>
         </div>

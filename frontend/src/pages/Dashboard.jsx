@@ -435,7 +435,7 @@ export default function Dashboard() {
           <div>
             {/* Breadcrumb for folder navigation */}
             <div className="crumb">
-              FileSphere{' '}
+              DriveSync{' '}
               {viewType === 'folder' ? (
                 <>
                   <span>›</span>{' '}

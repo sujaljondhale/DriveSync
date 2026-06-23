@@ -300,9 +300,9 @@ export const shareFileWithUser = async (req: Request, res: Response): Promise<vo
     if (process.env.SMTP_USER) {
       try {
         await transporter.sendMail({
-          from: `"FileSphere" <${process.env.SMTP_USER}>`,
+          from: `"DriveSync" <${process.env.SMTP_USER}>`,
           to: email,
-          subject: `A file has been shared with you on FileSphere`,
+          subject: `A file has been shared with you on DriveSync`,
           html: `<p>Hello ${targetUser.name},</p>
                  <p>User <b>${(req as any).user.id}</b> has shared the file <b>${file.name}</b> with you.</p>
                  <p>Permission granted: <b>${permission || 'VIEW'}</b></p>
