@@ -19,7 +19,7 @@ const parseCookies = (rc: string | undefined): Record<string, string> => {
 
 export const authenticateToken = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
-    const authHeader = req.headers['authorization'];
+    const authHeader = req.headers.authorization as string | undefined;
     let token = authHeader && authHeader.split(' ')[1];
 
     if (!token && req.headers.cookie) {
