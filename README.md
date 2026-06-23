@@ -13,6 +13,9 @@
 
 ---
 
+> **Note to Recruiters & Reviewers:**  
+> The core focus and technical challenge of this project is the **Backend Architecture**, database design, security implementations (OAuth, Passkeys), and API logic, which are entirely my own work. The frontend UI was built with AI-assistance to quickly provide a clean interface for interacting with the backend systems.
+
 ## 🌟 About DriveSync
 
 DriveSync bridges powerful cloud storage infrastructure with a calm, organic interface. It's built for people who want their files kept safely and simply. With seamless Google OAuth integration, advanced passkey support, and a robust folder structure system, DriveSync is a modern alternative to traditional cloud drives.
