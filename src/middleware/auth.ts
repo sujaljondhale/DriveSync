@@ -20,7 +20,7 @@ const parseCookies = (rc: string | undefined): Record<string, string> => {
 export const authenticateToken = async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
   try {
     const authHeader = req.headers.authorization as string | undefined;
-    let token = authHeader && authHeader.split(' ')[1];
+    let token = authHeader ? authHeader.split(' ')[1] : undefined;
 
     if (!token && req.headers.cookie) {
       const cookies = parseCookies(req.headers.cookie);
@@ -40,10 +40,16 @@ export const authenticateToken = async (req: AuthRequest, res: Response, next: N
       where: { token }
     });
 
-    if (!session || session.expiresAt < new Date()) {
-      if (session) {
-        await prisma.session.delete({ where: { token } }).catch(() => {});
-      }
+    if (!session) {
+      res.status(401).json({ message: 'Session expired or revoked' });
+      return;
+    }
+
+    // Normalize expiresAt to a Date and compare by timestamp to avoid
+    // issues where expiresAt may be a number/string/Date object.
+    const expiresAt = new Date(session.expiresAt as unknown as string | number | Date);
+    if (isNaN(expiresAt.getTime()) || expiresAt.getTime() < Date.now()) {
+      await prisma.session.delete({ where: { token } }).catch(() => {});
       res.status(401).json({ message: 'Session expired or revoked' });
       return;
     }
