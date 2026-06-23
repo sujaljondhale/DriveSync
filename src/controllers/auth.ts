@@ -279,9 +279,9 @@ export const deleteAllSessions = async (req: Request, res: Response): Promise<vo
 };
 
 export const googleLogin = async (req: Request, res: Response): Promise<void> => {
-  const { GOOGLE_CLIENT_ID, GOOGLE_CALLBACK_URI, FRONTEND_ORIGIN, NODE_ENV } = process.env;
+  const { GOOGLE_CLIENT_ID, GOOGLE_CALLBACK_URI, FRONTEND_ORIGIN } = process.env;
   let frontendOrigin = FRONTEND_ORIGIN || 'https://drive-sync-alpha.vercel.app';
-  if (NODE_ENV === 'production' && frontendOrigin.includes('localhost')) {
+  if (process.env.RENDER === 'true' || (process.env.NODE_ENV === 'production' && frontendOrigin.includes('localhost'))) {
     frontendOrigin = 'https://drive-sync-alpha.vercel.app';
   }
   
@@ -295,7 +295,7 @@ export const googleLogin = async (req: Request, res: Response): Promise<void> =>
 
 export const googleCallback = async (req: Request, res: Response): Promise<void> => {
   let frontendOrigin = process.env.FRONTEND_ORIGIN || 'https://drive-sync-alpha.vercel.app';
-  if (process.env.NODE_ENV === 'production' && frontendOrigin.includes('localhost')) {
+  if (process.env.RENDER === 'true' || (process.env.NODE_ENV === 'production' && frontendOrigin.includes('localhost'))) {
     frontendOrigin = 'https://drive-sync-alpha.vercel.app';
   }
   try {
