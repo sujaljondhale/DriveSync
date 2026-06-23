@@ -1412,3 +1412,28 @@ input, button {
   .hide-on-mobile { display: none !important; }
 }
 
+/* ── Custom Google Button ───────────────────────────────────────── */
+.btn-google-custom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  transition: all .15s;
+  font-family: inherit;
+}
+.btn-google-custom:hover {
+  background: var(--color-hover);
+  border-color: #4285F4;
+  color: #4285F4;
+}
+
+
