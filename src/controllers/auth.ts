@@ -279,8 +279,11 @@ export const deleteAllSessions = async (req: Request, res: Response): Promise<vo
 };
 
 export const googleLogin = async (req: Request, res: Response): Promise<void> => {
-  const { GOOGLE_CLIENT_ID, GOOGLE_CALLBACK_URI, FRONTEND_ORIGIN } = process.env;
-  const frontendOrigin = FRONTEND_ORIGIN || 'https://drive-sync-alpha.vercel.app';
+  const { GOOGLE_CLIENT_ID, GOOGLE_CALLBACK_URI, FRONTEND_ORIGIN, NODE_ENV } = process.env;
+  let frontendOrigin = FRONTEND_ORIGIN || 'https://drive-sync-alpha.vercel.app';
+  if (NODE_ENV === 'production' && frontendOrigin.includes('localhost')) {
+    frontendOrigin = 'https://drive-sync-alpha.vercel.app';
+  }
   
   if (GOOGLE_CLIENT_ID && GOOGLE_CALLBACK_URI) {
     const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${encodeURIComponent(GOOGLE_CALLBACK_URI)}&scope=email%20profile`;
@@ -291,7 +294,10 @@ export const googleLogin = async (req: Request, res: Response): Promise<void> =>
 };
 
 export const googleCallback = async (req: Request, res: Response): Promise<void> => {
-  const frontendOrigin = process.env.FRONTEND_ORIGIN || 'https://drive-sync-alpha.vercel.app';
+  let frontendOrigin = process.env.FRONTEND_ORIGIN || 'https://drive-sync-alpha.vercel.app';
+  if (process.env.NODE_ENV === 'production' && frontendOrigin.includes('localhost')) {
+    frontendOrigin = 'https://drive-sync-alpha.vercel.app';
+  }
   try {
     const code = req.query.code as string;
     const { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_CALLBACK_URI } = process.env;
